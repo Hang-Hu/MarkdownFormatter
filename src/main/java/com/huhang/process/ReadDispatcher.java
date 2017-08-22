@@ -28,7 +28,12 @@ public class ReadDispatcher {
         .getCreationDate(markdownBean.getSourceDirectory() + markdownBean.getMediumPath(),
             markdownBean.getName());
     markdownBean.setCreationDate(creationDate);
+    String formatedName=format(markdownBean.getName());
+    markdownBean.setName(formatedName);
+  }
 
+  private String format(String name) {
+    return name.replace("# ", "").replace(" ", "-");
   }
 
   public PostMetaData getPostMetaData(MarkdownBean markdownBean) {
